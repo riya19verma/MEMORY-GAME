@@ -1,6 +1,8 @@
 body{
     background-color: rgb(251, 207, 229);
     align-items: center;
+    text-align: center;
+    width : 100%;
 }
 h1{
     text-align: center;
@@ -19,11 +21,12 @@ h2{
 .grid{
     display: grid;
     align-items: center;
+    text-align: center;
     gap: 10px;
-    grid-template-columns: repeat(8,1fr);
     margin-left: 5px;
-    width : 100%;
-    ;
+}
+.grid .cls{
+    width : 150px;
 }
 
 #timer{
@@ -55,4 +58,17 @@ h2{
     align-items: center;
     gap: 430px;
     margin-left: 10px;
+}
+
+#nextLevel{
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(167, 32, 167);
+    border-radius: 10px;
+    border-color: chocolate;
+    padding: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-width: 10px;
 }
