@@ -1,29 +1,31 @@
-let apple = document.querySelectorAll("#apple");
-let banana = document.querySelectorAll("#banana");
-let cherry = document.querySelectorAll("#cherry");
-let grape = document.querySelectorAll("#grape");
-let mango = document.querySelectorAll("#mango");
-let pear = document.querySelectorAll("#pear");
-let pineapple = document.querySelectorAll("#pineapple");
-let watermelon = document.querySelectorAll("#watermelon");
+let cls = document.querySelectorAll(".cls");
 let grid = document.querySelector(".grid");
 let scoreboard = document.querySelector("#score");
 let i = 0;
-let prev = apple[0];
-console.dir(grid);
+let prev;
+console.dir(cls[0]);
 let score = 0;
-
-function click (curr,id)
+let len = 16;
+let arr = ["apple","banana","cherry","grape","mango","pear","pineapple","watermelon","apple","banana","cherry","grape","mango","pear","pineapple","watermelon"];
+function click (curr)
 {
-    i++;//console.log(i);console.dir(apple[0].firstChild.src);
-    curr.firstChild.src = id+".jpg";
+    i++;
+    if(curr.id == "")
+    {
+        let index = Math.floor(Math.random() * len);
+        curr.id = arr[index];
+        curr.firstChild.alt = toString(arr[index]);
+        arr.splice(index,1);
+        len --;
+    }
+    curr.firstChild.src = curr.id+".jpg";
     if(i == 1)
     {
         prev = curr;
         console.dir(prev)
         console.log(i);
     }
-    else if(i == 2 && prev.id == id && prev != curr)
+    else if(i == 2 && prev.id == curr.id && prev != curr)
     {
         console.log(prev);
         setTimeout(() => 
@@ -37,7 +39,7 @@ function click (curr,id)
             scoreboard.innerHTML = `Score : ${score}`;
         }, 500);
     }   
-    else if(i == 2 && prev.id != id && prev != curr)
+    else if(i == 2 && prev.id != curr.id && prev != curr)
     {
         console.log(prev);
         setTimeout(() => 
@@ -52,22 +54,23 @@ function click (curr,id)
         i = 1;
     }
 }
-apple[0].onclick = () => click(apple[0],"apple");
-apple[1].onclick = () => click(apple[1],"apple");
-banana[0].onclick = () => click(banana[0],"banana");
-banana[1].onclick = () => click(banana[1],"banana");
-cherry[0].onclick = () => click(cherry[0],"cherry");
-cherry[1].onclick = () => click(cherry[1],"cherry");
-grape[0].onclick = () => click(grape[0],"grape");
-grape[1].onclick = () => click(grape[1],"grape");
-mango[0].onclick = () => click(mango[0],"mango");
-mango[1].onclick = () => click(mango[1],"mango");
-pear[0].onclick = () => click(pear[0],"pear");
-pear[1].onclick = () => click(pear[1],"pear");
-pineapple[0].onclick = () => click(pineapple[0],"pineapple");
-pineapple[1].onclick = () => click(pineapple[1],"pineapple");
-watermelon[0].onclick = () => click(watermelon[0],"watermelon");
-watermelon[1].onclick = () => click(watermelon[1],"watermelon");
+
+cls[0].onclick = () => click(cls[0]);
+cls[1].onclick = () => click(cls[1]);
+cls[2].onclick = () => click(cls[2]);
+cls[3].onclick = () => click(cls[3]);
+cls[4].onclick = () => click(cls[4]);
+cls[5].onclick = () => click(cls[5]);
+cls[6].onclick = () => click(cls[6]);
+cls[7].onclick = () => click(cls[7]);
+cls[8].onclick = () => click(cls[8]);
+cls[9].onclick = () => click(cls[9]);
+cls[10].onclick = () => click(cls[10]);
+cls[11].onclick = () => click(cls[11]);
+cls[12].onclick = () => click(cls[12]);
+cls[13].onclick = () => click(cls[13]);
+cls[14].onclick = () => click(cls[14]);
+cls[15].onclick = () => click(cls[15]);
 
 function formatTime(seconds) {
     const hrs = Math.floor(seconds / 3600);
